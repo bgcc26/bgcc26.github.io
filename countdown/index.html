@@ -1,0 +1,377 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>বাকলিয়া সরকারি কলেজ, চট্টগ্রাম</title>
+    <style>
+      
+      @font-face {
+        font-family: "AkhandBengali";
+        src: url('Akhand Bengali.ttf');
+        font-style: normal;
+      }
+
+      ::-moz-selection {
+        color: #ffffff;
+        background: #0096FF;
+      }
+
+      ::selection {
+        color: #ffffff;
+        background: #0096FF;
+      }
+
+      body {
+        font-family: "AkhandBengali";
+        background-color: #ffffff;
+        font-weight: 400;
+        margin: 0;
+        padding: 0;
+        color: #000042;
+      }
+
+      h1 {
+        font-size: 2rem;
+        font-weight: 800;
+        color: #000042;
+        margin: 0 0 1rem 0;
+      }
+
+      section {
+        margin: 2rem 0;
+        padding: 0 2rem;
+        text-align: justify;
+      }
+
+      h2 {
+        font-weight: 800;
+        color: #000042;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      p {
+        font-size: 1rem;
+        color: #000042;
+        line-height: 1.5;
+        margin-bottom: 1rem;
+      }
+
+      h3,
+      h4,
+      h5,
+      h6 {
+        color: #000042;
+        margin-bottom: 0.5rem;
+      }
+      @media (min-width: 768px) {
+        #button-50 {
+          padding: 12px 50px;
+        }
+      }
+
+      .navbar-toggler {
+        width: 40px;
+        height: 40px;
+        padding: 0;
+        border-radius: 70%;
+      }
+
+      .navbar-toggler-icon {
+        background-image: url('assets/nav.png');
+      }
+
+      .navbar-toggler:focus {
+        box-shadow: none;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+
+        to {
+          opacity: 1;
+        }
+      }
+
+      #fly {
+        animation: fadeIn 2s ease-in-out forwards;
+      }
+
+      #about {
+        border-radius: 15px;
+        text-align: center;
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+
+      .slide-in-down {
+        animation: slideInDown 1s ease forwards;
+        opacity: 0;
+      }
+
+      @keyframes slideInDown {
+        from {
+          transform: translateY(-100%);
+          opacity: 0;
+        }
+
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      /* --- Responsive Navigation --- */
+      header {
+        background: #000042;
+        color: white;
+        padding: 15px 20px;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      /* Logo */
+      .logo {
+        font-size: 1.6rem;
+        font-weight: 800;
+        color: #ffffff;
+      }
+
+      /* Nav */
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+      }
+
+      nav ul li {
+        position: relative;
+      }
+
+      nav a {
+        color: white;
+        text-decoration: none;
+        padding: 8px 10px;
+        display: block;
+        font-weight: 600;
+      }
+
+      nav a:hover {
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 4px;
+      }
+
+      /* Dropdown */
+      nav ul li ul {
+        position: absolute;
+        top: 40px;
+        left: 0;
+        background: #003060;
+        display: none;
+        flex-direction: column;
+        min-width: 160px;
+        border-radius: 4px;
+        z-index: 100;
+      }
+
+      nav ul li:hover>ul {
+        display: flex;
+      }
+
+      nav ul li ul li a {
+        padding: 10px;
+        font-weight: 400;
+      }
+
+      nav ul li ul li a:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      /* Hamburger */
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+        gap: 5px;
+      }
+
+      .hamburger div {
+        width: 25px;
+        height: 3px;
+        background: white;
+        border-radius: 2px;
+      }
+
+      /* Responsive styles */
+      @media (max-width: 768px) {
+        nav ul {
+          position: fixed;
+          top: 60px;
+          right: 0;
+          background: #000042;
+          flex-direction: column;
+          width: 220px;
+          height: calc(100% - 60px);
+          padding-top: 20px;
+          transform: translateX(100%);
+          transition: transform 0.3s ease-in-out;
+          z-index: 99;
+        }
+
+        nav ul.open {
+          transform: translateX(0);
+        }
+
+        nav ul li ul {
+          position: static;
+          background: #000042;
+          border-radius: 0;
+          display: none;
+          padding-left: 10px;
+        }
+
+        nav ul li.open>ul {
+          display: flex;
+          flex-direction: column;
+        }
+
+        nav ul li {
+          width: 100%;
+        }
+
+        nav a {
+          padding: 12px 20px;
+          font-weight: 600;
+        }
+
+        .hamburger {
+          display: flex;
+        }
+      }
+
+      /* Container for page sections */
+      .section {
+        max-width: 900px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="logo">
+          <img src="https://upload.wikimedia.org/wikipedia/en/1/1d/Bakalia_Government_College_logo.svg" alt="BGCC" style="width:100px"></img>বাকলিয়া সরকারি কলেজ, চট্টগ্রাম
+        </div>
+        <nav>
+          <ul id="nav-menu">
+            <li>
+              <a href="#about">আমাদের সম্পর্কে</a>
+            </li>
+            <li class="has-submenu">
+              <a href="#">অন্যান্য</a>
+        </nav>
+        <div class="hamburger" id="hamburger" aria-label="Toggle navigation" role="button" tabindex="0">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    </header>
+    <main class="section">
+      <section id="about">
+        <h1>বাকলিয়া সরকারি কলেজ, চট্টগ্রাম-এ আপনাকে স্বাগতম</h1>
+        <p>এইচএসসি '২৬ এর সম্ভাব্য সময়: মে/জুন ২০২৬</p>
+       </section>
+    </main>
+    <script>
+      const hamburger = document.getElementById('hamburger');
+      const navMenu = document.getElementById('nav-menu');
+      const submenuParents = document.querySelectorAll('li.has-submenu');
+      hamburger.addEventListener('click', () => {
+        navMenu.classList.toggle('open');
+      });
+      submenuParents.forEach(parent => {
+        parent.addEventListener('click', (e) => {
+          if (window.innerWidth <= 768) {
+            e.preventDefault();
+            parent.classList.toggle('open');
+          }
+        });
+      });
+      // Optional: close menu on link click (mobile)
+      navMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          if (window.innerWidth <= 768) {
+            navMenu.classList.remove('open');
+            submenuParents.forEach(p => p.classList.remove('open'));
+          }
+        });
+      });
+    </script>
+    <style>
+      #contact {
+        background-color: #000042;
+        color: #ffffff;
+        padding: 3rem 1rem;
+        text-align: center;
+      }
+
+      .footer-container {
+        max-width: 900px;
+        margin: auto;
+      }
+
+      #contact h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+        color: #ffffff;
+      }
+
+      #contact p {
+        font-size: 1rem;
+        margin: 0.5rem 0;
+        color: #cccccc;
+      }
+
+      .footer-social {
+        margin: 1.5rem 0;
+      }
+
+      .footer-social a {
+        margin: 0 0.5rem;
+        font-size: 1.5rem;
+        color: #ffffff;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .footer-social a:hover {
+        color: #0096FF;
+      }
+
+      .footer-copy {
+        font-size: 0.9rem;
+        opacity: 0.7;
+      }
+    </style>
+    <footer id="contact">
+      <div class="container">
+        <h2>যোগাযোগ</h2>
+        <p>&copy; ২০২৫ বাকলিয়া সরকারি কলেজ, চট্টগ্রাম কর্তৃক সর্বস্বত্ব সংরক্ষিত</p>
+      </div>
+    </footer>
+  </body>
+</html>
+</body>
+</html>
