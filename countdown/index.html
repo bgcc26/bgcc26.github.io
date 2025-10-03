@@ -7,8 +7,8 @@
     <style>
       
       @font-face {
-        font-family: "AkhandBengali";
-        src: url('assets/Akhand Bengali.ttf');
+        font-family: "Siyam Rupali";
+        src: url('assets/Siyam Rupali.ttf');
         font-style: normal;
       }
 
@@ -262,8 +262,13 @@
       }
     </style>
     <script>
+        function toBanglaDigit(num) {
+            const banglaDigits = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
+            return num.toString().split('').map(digit => banglaDigits[digit]).join('');
+        }
+
         function updateCountdown() {
-            const targetDate = new Date(2026, 0, 7, 9, 44, 59);
+            const targetDate = new Date(2026, 7, 1, 9, 44, 59);
             const currentDate = new Date();
             const timeDifference = targetDate - currentDate;
 
@@ -273,7 +278,7 @@
             const minutes = Math.floor((timeDifference % (60 * 60 * 1000)) / (60 * 1000));
             const seconds = Math.floor((timeDifference % (60 * 1000)) / 1000);
 
-            document.getElementById("countdown").innerText = `এইচএসসির আর বাকি ${months} মাস, ${days} দিন, ${hours} ঘণ্টা, ${minutes} মিনিট, ${seconds} সেকেন্ড।`;
+            document.getElementById("countdown").innerText = `আর বাকি ${toBanglaDigit(months)} মাস, ${toBanglaDigit(days)} দিন, ${toBanglaDigit(hours)} ঘণ্টা, ${toBanglaDigit(minutes)} মিনিট, ${toBanglaDigit(seconds)} সেকেন্ড`;
         }
 
         setInterval(updateCountdown, 1000);
