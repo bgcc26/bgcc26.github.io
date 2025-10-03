@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -266,36 +265,66 @@
         padding: 0 1rem;
       }
     </style>
-        <script>
+    <script>
+    function updateCountdown() {
+  var countdownElement = document.getElementById("countdown");
+  var now = new Date();
+  var endDate = new Date("2026-07-01T09:45:59");
 
-      function updateCountdown() {
-        var countdownElement = document.getElementById("countdown");
-        var now = new Date();
-        var endDate = new Date("2026-07-01T09:45:59");
-        var timeLeft = endDate - now;
-        if (timeLeft < 0) {
-          countdownElement.innerHTML = "Countdown finished!";
-        } else {
-          var days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-          var hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-          var minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-          var seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-          countdownElement.innerHTML = "এইচএসসি শুরুর আর " + toBanglaDigits(days) + " দিন " + toBanglaDigits(hours) + " ঘন্টা " + toBanglaDigits(minutes) + " মিনিট " + toBanglaDigits(seconds) + " সেকেন্ড বাকি আছে।";
-        }
-      }
+  if (endDate < now) {
+    countdownElement.innerHTML = "Countdown finished!";
+    return;
+  }
 
-      function toBanglaDigits(number) {
-        var banglaDigits = ["০", "১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯"];
-        var result = "";
-        var numberString = number.toString();
-        for (var i = 0; i < numberString.length; i++) {
-          var digit = parseInt(numberString[i]);
-          result += banglaDigits[digit];
-        }
-        return result;
-      }
-      setInterval(updateCountdown, 1000);
-    </script>
+  // Get time difference in milliseconds
+  var timeLeft = endDate - now;
+
+  // Calculate full months remaining
+  var years = endDate.getFullYear() - now.getFullYear();
+  var months = endDate.getMonth() - now.getMonth() + years * 12;
+
+  if (endDate.getDate() < now.getDate()) {
+    months -= 1; // Adjust if the current day is after the target day
+  }
+
+  // Calculate remaining days, hours, minutes, seconds
+  // Create a temporary date from now and add the calculated months to get the adjusted start date
+  var adjustedDate = new Date(now);
+  adjustedDate.setMonth(now.getMonth() + months);
+
+  // Get remaining time after full months
+  var remainingTime = endDate - adjustedDate;
+
+  var days = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
+
+  countdownElement.innerHTML =
+    "এইচএসসি শুরুর আর " +
+    toBanglaDigits(months) + " মাস " +
+    toBanglaDigits(days) + " দিন " +
+    toBanglaDigits(hours) + " ঘন্টা " +
+    toBanglaDigits(minutes) + " মিনিট " +
+    toBanglaDigits(seconds) + " সেকেন্ড বাকি আছে।";
+}
+
+function toBanglaDigits(number) {
+  var banglaDigits = ["০", "১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯"];
+  var result = "";
+  var numberString = number.toString();
+  for (var i = 0; i < numberString.length; i++) {
+    var digit = parseInt(numberString[i]);
+    if (!isNaN(digit)) {
+      result += banglaDigits[digit];
+    } else {
+      result += numberString[i]; // in case of symbols like "-" or others
+    }
+  }
+  return result;
+}
+
+ </script>
   </head>
   <body>
     <header>
