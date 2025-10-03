@@ -9,7 +9,7 @@
       
       @font-face {
         font-family: "AkhandBengali";
-        src: url('Akhand Bengali.ttf');
+        src: url('assets/Akhand Bengali.ttf');
         font-style: normal;
       }
 
@@ -266,6 +266,36 @@
         padding: 0 1rem;
       }
     </style>
+        <script>
+
+      function updateCountdown() {
+        var countdownElement = document.getElementById("countdown");
+        var now = new Date();
+        var endDate = new Date("2026-07-01T09:45:59");
+        var timeLeft = endDate - now;
+        if (timeLeft < 0) {
+          countdownElement.innerHTML = "Countdown finished!";
+        } else {
+          var days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+          var hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          var minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+          var seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+          countdownElement.innerHTML = "এইচএসসি শুরুর আর " + toBanglaDigits(days) + " দিন " + toBanglaDigits(hours) + " ঘন্টা " + toBanglaDigits(minutes) + " মিনিট " + toBanglaDigits(seconds) + " সেকেন্ড বাকি আছে।";
+        }
+      }
+
+      function toBanglaDigits(number) {
+        var banglaDigits = ["০", "১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯"];
+        var result = "";
+        var numberString = number.toString();
+        for (var i = 0; i < numberString.length; i++) {
+          var digit = parseInt(numberString[i]);
+          result += banglaDigits[digit];
+        }
+        return result;
+      }
+      setInterval(updateCountdown, 1000);
+    </script>
   </head>
   <body>
     <header>
@@ -291,7 +321,8 @@
     <main class="section">
       <section id="about">
         <h1>বাকলিয়া সরকারি কলেজ, চট্টগ্রাম-এ আপনাকে স্বাগতম</h1>
-        <p>এইচএসসি '২৬ এর সম্ভাব্য সময়: মে/জুন ২০২৬</p>
+        <p>এইচএসসি '২৬ এর সম্ভাব্য সময়: ২০২৬ এর মে মাসের এর শেষার্ধে/জুনের প্রথমার্ধে</p>
+        <a style="font-weight: 500; font-size: 30px;" id="countdown"></a>
        </section>
     </main>
     <script>
@@ -309,8 +340,7 @@
           }
         });
       });
-      // Optional: close menu on link click (mobile)
-      navMenu.querySelectorAll('a').forEach(link => {
+        navMenu.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
           if (window.innerWidth <= 768) {
             navMenu.classList.remove('open');
