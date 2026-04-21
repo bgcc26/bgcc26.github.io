@@ -31,7 +31,7 @@
 <style>
   @font-face {
     font-family: "Siyam Rupali";
-    src: url('..../assets/Siyam Rupali.ttf');
+    src: url('https://bgcc26.github.io/assets/Siyam Rupali.ttf');
     font-style: normal;
   }
 
@@ -297,7 +297,7 @@
     const hours = Math.floor((timeDifference % (24 * 60 * 60 * 1000)) / (60 * 60 * 1000));
     const minutes = Math.floor((timeDifference % (60 * 60 * 1000)) / (60 * 1000));
     const seconds = Math.floor((timeDifference % (60 * 1000)) / 1000);
-    document.getElementById("countdown").innerText = `এইচএসসি শুরুর আর বাকি ${toBanglaDigit(months)} মাস, ${toBanglaDigit(days)} দিন, ${toBanglaDigit(hours)} ঘণ্টা, ${toBanglaDigit(minutes)} মিনিট, ${toBanglaDigit(seconds)} সেকেন্ড`;
+    document.getElementById("countdown").innerText = `শুরুর আর বাকি ${toBanglaDigit(months)} মাস, ${toBanglaDigit(days)} দিন, ${toBanglaDigit(hours)} ঘণ্টা, ${toBanglaDigit(minutes)} মিনিট, ${toBanglaDigit(seconds)} সেকেন্ড`;
   }
   setInterval(updateCountdown, 1000);
   updateCountdown();
@@ -312,7 +312,7 @@
       <nav>
         <ul id="nav-menu">
           <li>
-            <a href="#about">ইতিহাস</a>
+            <a href="#about">সম্পর্কে</a>
           </li>
           <li class="has-submenu">
             <a href="#">যোগাযোগ</a>
